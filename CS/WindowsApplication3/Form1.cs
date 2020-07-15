@@ -13,55 +13,49 @@ using System.Drawing.Drawing2D;
 
 
 namespace DXSample {
-    public partial class Main: XtraForm {
+    public partial class Main : XtraForm {
         public Main() {
             InitializeComponent();
         }
 
-        private void OnCustomDrawBarItemLink(object sender, CustomDrawBarItemEventArgs e)
-        {
-            if(e.ItemLink is BarSubItemLink)
-                e.Appearance.ForeColor = Color.Red;
-            if (e.ItemLink.Item.Name == "barButtonItem1")
-            {
-                if (e.IsItemHotTracked)
-                {
-                    e.Cache.Graphics.FillRectangle(new LinearGradientBrush(e.Bounds, Color.DarkGreen, Color.LightGreen, 
-                        LinearGradientMode.BackwardDiagonal), e.Bounds);
-                    e.Cache.Graphics.DrawLine(Pens.White, e.Bounds.Location, new Point(e.Bounds.Right, e.Bounds.Y));
-                    e.Cache.Graphics.DrawLine(Pens.Black, new Point(e.Bounds.X, e.Bounds.Bottom), new Point(e.Bounds.Right, e.Bounds.Bottom));
-                    e.Cache.Graphics.DrawLine(Pens.White, e.Bounds.Location, new Point(e.Bounds.X, e.Bounds.Bottom));
-                    e.Cache.Graphics.DrawLine(Pens.Black, new Point(e.Bounds.Right, e.Bounds.Y), new Point(e.Bounds.Right, e.Bounds.Bottom));
+
+        private void RibbonControl1_CustomDrawItem(object sender, DevExpress.XtraBars.BarItemCustomDrawEventArgs e) {
+            if(e.RibbonItemInfo == null) return;
+            var link = e.RibbonItemInfo.Item as BarItemLink;
+            if(link is BarSubItemLink)
+                e.RibbonItemInfo.Appearance.ForeColor = Color.Red;
+            if(link.Item.Name == "barButtonItem1") {
+                if(e.State == DevExpress.XtraBars.ViewInfo.BarLinkState.Highlighted) {
+                    using(var backBrush = new LinearGradientBrush(e.Bounds, Color.DarkGreen, Color.LightGreen,
+                            LinearGradientMode.BackwardDiagonal))
+                        e.Cache.FillRectangle(backBrush, e.Bounds);
+                    e.Graphics.DrawLine(Pens.White, e.Bounds.Location, new Point(e.Bounds.Right, e.Bounds.Y));
+                    e.Graphics.DrawLine(Pens.Black, new Point(e.Bounds.X, e.Bounds.Bottom), new Point(e.Bounds.Right, e.Bounds.Bottom));
+                    e.Graphics.DrawLine(Pens.White, e.Bounds.Location, new Point(e.Bounds.X, e.Bounds.Bottom));
+                    e.Graphics.DrawLine(Pens.Black, new Point(e.Bounds.Right, e.Bounds.Y), new Point(e.Bounds.Right, e.Bounds.Bottom));
                 }
                 else
-                    e.Cache.Graphics.FillRectangle(new SolidBrush(Color.LightSeaGreen), e.Bounds);
-                e.Appearance.DrawString(e.Cache, e.ItemLink.Caption, e.CaptionBounds);
-                if (e.ItemLink.ImageIndex != -1)
-                {
-                    Image image = (e.ItemLink.Item.Images as ImageCollection).Images[e.ItemLink.ImageIndex];
-                    e.Cache.Graphics.DrawImage(image, e.GlyphBounds);
-                }
+                    e.Cache.FillRectangle(Brushes.LightSeaGreen, e.Bounds);
+                e.DrawText();
+                e.DrawGlyph();
                 e.Handled = true;
             }
-            if (e.ItemLink.Item.Name == "barEditItem1")
-            {
-                if (e.IsItemHotTracked)
-                {
-                    e.Cache.Graphics.FillRectangle(new LinearGradientBrush(e.Bounds, Color.DarkOrange, Color.LightYellow,
-                        LinearGradientMode.BackwardDiagonal), e.Bounds);
-                    e.Cache.Graphics.DrawLine(Pens.White, e.Bounds.Location, new Point(e.Bounds.Right, e.Bounds.Y));
-                    e.Cache.Graphics.DrawLine(Pens.Black, new Point(e.Bounds.X, e.Bounds.Bottom), new Point(e.Bounds.Right, e.Bounds.Bottom));
-                    e.Cache.Graphics.DrawLine(Pens.White, e.Bounds.Location, new Point(e.Bounds.X, e.Bounds.Bottom));
-                    e.Cache.Graphics.DrawLine(Pens.Black, new Point(e.Bounds.Right, e.Bounds.Y), new Point(e.Bounds.Right, e.Bounds.Bottom));
+            if(link.Item.Name == "barEditItem1") {
+                if(e.State == DevExpress.XtraBars.ViewInfo.BarLinkState.Highlighted) {
+                    using(var backBrush = new LinearGradientBrush(e.Bounds, Color.DarkOrange, Color.LightYellow,
+                        LinearGradientMode.BackwardDiagonal)) {
+                        e.Cache.Graphics.FillRectangle(backBrush, e.Bounds);
+                        e.Cache.Graphics.DrawLine(Pens.White, e.Bounds.Location, new Point(e.Bounds.Right, e.Bounds.Y));
+                        e.Cache.Graphics.DrawLine(Pens.Black, new Point(e.Bounds.X, e.Bounds.Bottom), new Point(e.Bounds.Right, e.Bounds.Bottom));
+                        e.Cache.Graphics.DrawLine(Pens.White, e.Bounds.Location, new Point(e.Bounds.X, e.Bounds.Bottom));
+                        e.Cache.Graphics.DrawLine(Pens.Black, new Point(e.Bounds.Right, e.Bounds.Y), new Point(e.Bounds.Right, e.Bounds.Bottom));
+                    }
                 }
                 else
-                    e.Cache.Graphics.FillRectangle(new SolidBrush(Color.Yellow), e.Bounds);
-                e.Appearance.DrawString(e.Cache, e.ItemLink.Caption, e.CaptionBounds);
-                if (e.ItemLink.ImageIndex != -1)
-                {
-                    Image image = (e.ItemLink.Item.Images as ImageCollection).Images[e.ItemLink.ImageIndex];
-                    e.Cache.Graphics.DrawImage(image, e.GlyphBounds);
-                }
+                    e.Cache.FillRectangle(Brushes.Yellow, e.Bounds);
+                e.DrawText();
+                e.DrawGlyph();
+                e.DrawEditor();
                 e.Handled = true;
             }
         }

@@ -1,3 +1,5 @@
+using DevExpress.XtraBars.Ribbon;
+
 namespace DXSample {
     partial class Main {
         /// <summary>
@@ -26,7 +28,7 @@ namespace DXSample {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.ribbonControl1 = new DXSample.MyRibbonControl();
+            this.ribbonControl1 = new RibbonControl();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.Co = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -85,7 +87,7 @@ namespace DXSample {
             this.repositoryItemSpinEdit1,
             this.repositoryItemMRUEdit1});
             this.ribbonControl1.Size = new System.Drawing.Size(615, 141);
-            this.ribbonControl1.CustomDrawBarItemLink += new DXSample.CustomDrawBarItemEventHandler(this.OnCustomDrawBarItemLink);
+            this.ribbonControl1.CustomDrawItem += RibbonControl1_CustomDrawItem;
             // 
             // imageCollection1
             // 
@@ -343,12 +345,13 @@ namespace DXSample {
 
         }
 
+
         #endregion
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
-        private MyRibbonControl ribbonControl1;
+        private RibbonControl ribbonControl1;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinEdit1;
         private DevExpress.XtraBars.BarButtonItem Co;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
