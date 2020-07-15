@@ -93,17 +93,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Custom Ribbon\MyRibbonPanelGroupPainter.cs" />
-    <Compile Include="Custom Ribbon\MyRibbonPanelViewInfo.cs" />
-    <Compile Include="Custom Ribbon\CustomDrawBarItemEventArgs.cs" />
-    <Compile Include="Custom Ribbon\MyRibbonItemViewInfoCalculator.cs" />
-    <Compile Include="Custom Ribbon\MyRibbonViewInfo.cs" />
-    <Compile Include="Custom Ribbon\MyRibbonBarManager.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Custom Ribbon\MyRibbonControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
