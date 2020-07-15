@@ -1,5 +1,5 @@
-Imports Microsoft.VisualBasic
-Imports System
+﻿Imports DevExpress.XtraBars.Ribbon
+
 Namespace DXSample
 	Partial Public Class Main
 		''' <summary>
@@ -28,7 +28,7 @@ Namespace DXSample
 			Me.components = New System.ComponentModel.Container()
 			Dim resources As New System.ComponentModel.ComponentResourceManager(GetType(Main))
 			Me.defaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
-			Me.ribbonControl1 = New DXSample.MyRibbonControl()
+			Me.ribbonControl1 = New RibbonControl()
 			Me.imageCollection1 = New DevExpress.Utils.ImageCollection(Me.components)
 			Me.Co = New DevExpress.XtraBars.BarButtonItem()
 			Me.barButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
@@ -72,7 +72,8 @@ Namespace DXSample
 			Me.ribbonControl1.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() { Me.ribbonPage1, Me.ribbonPage2, Me.ribbonPage3})
 			Me.ribbonControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() { Me.repositoryItemTextEdit1, Me.repositoryItemSpinEdit1, Me.repositoryItemMRUEdit1})
 			Me.ribbonControl1.Size = New System.Drawing.Size(615, 141)
-'			Me.ribbonControl1.CustomDrawBarItemLink += New DXSample.CustomDrawBarItemEventHandler(Me.OnCustomDrawBarItemLink);
+'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
+'ORIGINAL LINE: this.ribbonControl1.CustomDrawItem += RibbonControl1_CustomDrawItem;
 			' 
 			' imageCollection1
 			' 
@@ -224,7 +225,10 @@ Namespace DXSample
 			Me.barSubItem1.Caption = "AddText"
 			Me.barSubItem1.Id = 11
 			Me.barSubItem1.ImageOptions.LargeImage = My.Resources.Mail
-			Me.barSubItem1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() { New DevExpress.XtraBars.LinkPersistInfo(Me.barButtonItem4), New DevExpress.XtraBars.LinkPersistInfo(Me.barButtonItem5)})
+			Me.barSubItem1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {
+				New DevExpress.XtraBars.LinkPersistInfo(Me.barButtonItem4),
+				New DevExpress.XtraBars.LinkPersistInfo(Me.barButtonItem5)
+			})
 			Me.barSubItem1.Name = "barSubItem1"
 			' 
 			' barButtonItem4
@@ -323,12 +327,13 @@ Namespace DXSample
 
 		End Sub
 
+
 		#End Region
 		Private defaultLookAndFeel1 As DevExpress.LookAndFeel.DefaultLookAndFeel
 		Private ribbonPage1 As DevExpress.XtraBars.Ribbon.RibbonPage
 		Private ribbonPageGroup1 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 		Private repositoryItemTextEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
-		Private WithEvents ribbonControl1 As MyRibbonControl
+		Private WithEvents ribbonControl1 As RibbonControl
 		Private repositoryItemSpinEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit
 		Private Co As DevExpress.XtraBars.BarButtonItem
 		Private barButtonItem1 As DevExpress.XtraBars.BarButtonItem
