@@ -1,24 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DevExpress.Utils.Drawing;
-using DevExpress.Utils;
 using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
+using System.Drawing;
 using System.Drawing.Drawing2D;
-
 
 namespace DXSample {
     public partial class Main : XtraForm {
         public Main() {
             InitializeComponent();
         }
-
-
         private void RibbonControl1_CustomDrawItem(object sender, DevExpress.XtraBars.BarItemCustomDrawEventArgs e) {
             if(e.RibbonItemInfo == null) return;
             var link = e.RibbonItemInfo.Item as BarItemLink;
