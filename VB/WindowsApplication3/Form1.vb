@@ -1,9 +1,6 @@
-Imports System.ComponentModel
-Imports System.Drawing
-Imports DevExpress.XtraEditors
-Imports DevExpress.Utils.Drawing
-Imports DevExpress.Utils
 Imports DevExpress.XtraBars
+Imports DevExpress.XtraEditors
+Imports System.Drawing
 Imports System.Drawing.Drawing2D
 
 Namespace DXSample
