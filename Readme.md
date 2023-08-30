@@ -5,13 +5,11 @@
 <!-- default badges end -->
 <!-- default file list -->
 
-# Custom RibbonControl - How to provide CustomDraw capabilities for bar items 
+# WinForms Ribbon Control - Custom paint bar items 
 
-Starting with v15.1, we support the <a href="https://docs.devexpress.com/WindowsForms/DevExpress.XtraBars.Ribbon.RibbonControl.CustomDrawItem">RibbonControl.CustomDrawItem</a> event. 
-
-For earlier versions:
-<p>This example illustrates how to implement your own event at a RibbonControl level to allow you to draw a bar item link as required. </p>
-
-<br/>
+This example handles the [RibbonControl.CustomDrawItem](https://docs.devexpress.com/WindowsForms/DevExpress.XtraBars.Ribbon.RibbonControl.CustomDrawItem) event to custom paint bar items based on a specific condition.
 
 
+## See Also
+
+* [How to Custom Draw Gallery Items](https://docs.devexpress.com/WindowsForms/2878/controls-and-libraries/ribbon-bars-and-menu/examples/ribbon/how-to-custom-draw-gallery-items?p=netframework)
