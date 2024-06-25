@@ -123,7 +123,7 @@
   <metadata name="imageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>825, 17</value>
   </metadata>
-  <assembly alias="DevExpress.Utils.v23.1" name="DevExpress.Utils.v23.1, Version=23.1.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <assembly alias="DevExpress.Utils.v23.1" name="DevExpress.Utils.v23.1, Version=23.1.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="imageCollection1.ImageStream" type="DevExpress.Utils.ImageCollectionStreamer, DevExpress.Utils.v23.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFpEZXZFeHByZXNzLlV0aWxzLnYxNi4yLCBWZXJzaW9uPTE2LjIu
